@@ -1,0 +1,35 @@
+
+/* 卡片 */
+.card{
+    width:95%;
+    margin: 0.2rem auto;
+    padding: .625rem 0.23rem;
+    background:rgba(255,255,255,1);
+    border: 1px solid #efefef;
+    /* box-shadow:0rem 0rem 0.2rem 0.01rem rgba(0, 0, 0, 0.11); */
+    border-radius:0.5rem;
+}
+.pad{
+    padding: .625rem .625rem;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar{
+    display:none;
+}
+/* title块 */
+.titleChunk{
+    height: 1.875rem;
+    /* background-color: #ccc; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* title右侧按钮 */
+.rightjumpChunk{
+    display: flex;
+    border: 1px solid #f0f0f0;
+    width: 2.875rem;
+    border-radius: 1.425rem;
+    font-size: .475rem;
+    padding: .1125rem 0 .1125rem .725rem;
+}
