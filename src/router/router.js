@@ -135,7 +135,7 @@ const routes = [
         path:'/followedpage/:id',
         component:FollowedPage,
         name:'followedpage',
-        meta:'粉丝'
+        meta:'粉丝关注'
     },
     {
         path:'/usereditmasseg',
