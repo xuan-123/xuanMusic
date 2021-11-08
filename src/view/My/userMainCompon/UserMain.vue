@@ -73,7 +73,7 @@ export default {
             this.$router.push('/userlevel')
 
         },
-        goEditMasseg(id){
+        goEditMasseg(){
             this.$router.push('/usereditmasseg')
         }
     }
