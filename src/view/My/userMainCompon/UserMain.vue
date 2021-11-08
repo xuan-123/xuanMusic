@@ -11,7 +11,7 @@
             </div>
             <div class="edit">
                 <div class="top">
-                    <div>
+                    <div @click="gotoFollowed">
                         <p>{{userInfo.followeds}}</p>
                         <p>粉丝</p>
                     </div>
@@ -62,6 +62,10 @@ export default {
             
             // this.banners = res.data.b/anners
             // this.storageLocal.set('banners',this.banners)  
+        },
+        //去粉丝页
+        gotoFollowed(){
+            this.$router.push('/followedpage')
         },
         goLevel(){
             window.localStorage.setItem('userlevel',JSON.stringify(this.userLevel))

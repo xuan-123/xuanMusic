@@ -22,7 +22,7 @@ const MusicComment= ()=> import('../components/LisineMusic/MusicComment.vue')
 const UserMain= ()=> import('../view/My/userMainCompon/UserMain.vue')
 const UserLevel= ()=> import('../view/My/userLeverCompon/UserLevel.vue')
 const userEditMasseg= ()=> import('../view/My/userEditMassegCompon/userEditMasseg.vue')
-
+const FollowedPage = ()=> import('../view/My/userMainCompon/FollowedPage.vue')
 
 Vue.use(VueRouter)
 const originalPush = VueRouter.prototype.push
@@ -130,6 +130,12 @@ const routes = [
         component:UserLevel,
         name:'userlevel',
         meta:'等级'
+    },
+    {
+        path:'/followedpage',
+        component:FollowedPage,
+        name:'followedpage',
+        meta:'粉丝'
     },
     {
         path:'/usereditmasseg',
