@@ -6,7 +6,7 @@
             <div slot="center">MV排行榜</div>
             <div slot="right"></div>
         </nav-bar>
-        <progress style="width:400px;" max="100" :value="value"></progress>
+        <!-- <progress style="width:400px;" max="100" :value="value"></progress> -->
 
         <!-- 列表 -->
             <Bscroll 
