@@ -11,11 +11,11 @@
             </div>
             <div class="edit">
                 <div class="top">
-                    <div @click="gotoFollowed">
+                    <div @click="gotoFollowed(0)">
                         <p>{{userInfo.followeds}}</p>
                         <p>粉丝</p>
                     </div>
-                    <div>
+                    <div @click="gotoFollowed(1)">
                         <p>{{userInfo.follows}}</p>
                         <p>关注</p>
                     </div>
@@ -64,8 +64,8 @@ export default {
             // this.storageLocal.set('banners',this.banners)  
         },
         //去粉丝页
-        gotoFollowed(){
-            this.$router.push('/followedpage')
+        gotoFollowed(id){
+            this.$router.push('/followedpage/' + id)
         },
         goLevel(){
             window.localStorage.setItem('userlevel',JSON.stringify(this.userLevel))
@@ -73,8 +73,8 @@ export default {
             this.$router.push('/userlevel')
 
         },
-        goEditMasseg(){
-            this.$router.push('/usereditmasseg')
+        goEditMasseg(id){
+            this.$router.push('/usereditmasseg/' + id)
         }
     }
 }

@@ -132,7 +132,7 @@ const routes = [
         meta:'等级'
     },
     {
-        path:'/followedpage',
+        path:'/followedpage/:id',
         component:FollowedPage,
         name:'followedpage',
         meta:'粉丝'
