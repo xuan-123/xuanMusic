@@ -59,6 +59,7 @@ export default {
     },
     created(){
         this.id = this.$route.params.id
+        console.log(this.id)
         this.$nextTick(function(){
             this.getSingerDetail()
         })
@@ -112,6 +113,7 @@ export default {
           let res = await this.$request('/artists',{
                id:this.$route.params.id,
            })
+           console.log(res)
             this.artist = res.data.artist
             this.name = res.data.artist.name
             this.hotSongs = res.data.hotSongs
