@@ -74,7 +74,7 @@ export default {
 
         },
         goEditMasseg(id){
-            this.$router.push('/usereditmasseg/' + id)
+            this.$router.push('/usereditmasseg')
         }
     }
 }
