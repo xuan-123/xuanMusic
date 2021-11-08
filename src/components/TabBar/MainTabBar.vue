@@ -26,7 +26,7 @@
                 <tab-bar-item>
                     <div slot="top">关注</div>
                     <div slot="bottom">22</div>
-                    <!-- <div slot="bottom">K歌</div> -->
+                 
                 </tab-bar-item>
             </router-link>
             <router-link to="/yuncun" active-class="activeClass" >
