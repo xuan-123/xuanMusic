@@ -68,21 +68,10 @@ export default {
        
         setTimeout(() => {
              this.getItemLisinMusic()
-            this.playMusic()
+             this.playMusic()
         }, 100);
         //监听音频当前播放时间
-        var time = null
-        if(this.currentTime != Math.floor(this.durationNum)){
-            time = setInterval(()=>{
-                this.currentTime = Math.floor(this.$refs.audioPlayer.currentTime)
-                // this.currentTime++
-                this.timeProgress = Math.floor((this.currentTime / this.durationNum) * 100); //获取当前进度条数据 100份
-            },1000)
-        if(this.currentTime == Math.floor(this.durationNum)){ 
-            clearInterval(time)
-            return 
-        }
-        }
+        
          
         
       
@@ -125,6 +114,7 @@ export default {
         },
         //一进页面从本地缓存中拿当前播放的数据，以后要改为store方式
         getItemLisinMusic(){
+            
             let linsinMusic = window.sessionStorage.getItem('linsinMusic')
             linsinMusic = JSON.parse(linsinMusic)
             console.log(linsinMusic)
@@ -134,6 +124,20 @@ export default {
             this.picUrl = linsinMusic.al.picUrl
             this.musicTalTime = linsinMusic.dt //歌曲总时长
             this.durationNum = returnSecond(this.musicTalTime) //歌曲总秒数
+            //拿到音乐总时长后调倒计时
+            var time = null
+       
+            if(this.currentTime != Math.floor(this.durationNum)){
+                time = setInterval(()=>{
+                    this.currentTime = Math.floor(this.$refs.audioPlayer.currentTime)
+            
+                    this.timeProgress = Math.floor((this.currentTime / this.durationNum) * 100); //获取当前进度条数据 100份
+                },1000)
+            if(this.currentTime == Math.floor(this.durationNum)){ 
+                clearInterval(time)
+                return 
+            }
+        }
         },
         //改为slider监听
         onChange(e){
