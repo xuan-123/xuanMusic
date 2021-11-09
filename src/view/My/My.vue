@@ -13,6 +13,8 @@
             </div>
             <div><p class="iconfont icon-icon-right"></p></div>
         </div>
+        <!-- 我的喜欢 -->
+        <like-music></like-music>
         <!-- 底部导航 -->
         <main-tab-bar></main-tab-bar>
     </div>
@@ -21,9 +23,10 @@
 <script>
 import NavBar from '../../components/NavBar/NavBar.vue'
 import MainTabBar from '../../components/TabBar/MainTabBar.vue'
+import LikeMusic from './MyPageComp/LikeMusic.vue'
 export default {
     components:{
-        MainTabBar,NavBar
+        MainTabBar,NavBar,LikeMusic
     },
     data(){
         return{
@@ -49,7 +52,9 @@ export default {
 
 <style scoped>
     .my{
-        padding:2.75rem 0;
+        padding:2.75rem 10px;
+        background-color: #f7f7f7;
+        height: 100vh;
     }
     .userInfo{
         width: 100%;

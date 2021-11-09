@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/router'
+import store from './store/store'
 //全局中样式表
 import 'vant/lib/index.css';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -50,7 +51,7 @@ import { request } from "./network/request";
 Vue.prototype.$request = request;
 
 new Vue({
-  router,
+  router,store,
   render: function (h) { return h(App) },
 }).$mount('#app')
 

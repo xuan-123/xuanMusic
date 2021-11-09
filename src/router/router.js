@@ -23,7 +23,7 @@ const UserMain= ()=> import('../view/My/userMainCompon/UserMain.vue')
 const UserLevel= ()=> import('../view/My/userLeverCompon/UserLevel.vue')
 const userEditMasseg= ()=> import('../view/My/userEditMassegCompon/userEditMasseg.vue')
 const FollowedPage = ()=> import('../view/My/userMainCompon/FollowedPage.vue')
-
+const LikeMusicListPage = () => import('../view/My/MyPageComp/LikeMusicListPage.vue')
 Vue.use(VueRouter)
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location){
@@ -56,6 +56,13 @@ const routes = [
         component:My,
         name:'my',
         meta:'我的'
+    },
+    {
+        path:'/likemusiclistPage',
+        component:LikeMusicListPage,
+        name:'likemusiclistPage',
+        meta:'喜欢列表'
+        
     },
     {
         path:'/boke',
