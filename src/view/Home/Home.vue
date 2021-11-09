@@ -115,13 +115,13 @@ export default {
     //获取用户登录状态
     // var token = sessionStorage.getItem('token')
     //获取轮播图
-    // this.getBanner()
+    this.getBanner()
    
 
     //获取推荐歌单
-    // this.getPersonalized()
+    this.getPersonalized()
     //获取推荐歌曲
-    // this.getRecommendSongs()
+    this.getRecommendSongs()
     //  this.init()
   },
     methods:{

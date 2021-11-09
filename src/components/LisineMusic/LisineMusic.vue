@@ -165,8 +165,6 @@ export default {
             this.volumeFlag = !this.volumeFlag
         },
         //用户评论
-        
-        
         userLike(){
             this.$router.push('/musiccomment/'+this.$route.params.id)
                 
