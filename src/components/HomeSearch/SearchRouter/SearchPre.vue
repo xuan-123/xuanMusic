@@ -11,12 +11,18 @@
             <van-swipe class="my-swipe"  indicator-color="white">
                 <van-swipe-item >
                     <div v-for="(item,index) in hotsList" :key="item.id" class="swiper-div" v-show="index<showListNum">
-                            <p :class="[index<3 ? 'fontCol' : '']" class="pType"><span :class="[index<3 ? 'indexCol' : '']">{{index + 1}}</span>{{item.searchWord}} <img :src="item.iconUrl" alt="" v-show="item.iconUrl"></p>
+                            <p :class="[index<3 ? 'fontCol' : '']" class="pType" @click="searchListFun(item.searchWord)"><span :class="[index<3 ? 'indexCol' : '']">{{index + 1}}</span>{{item.searchWord}} <img :src="item.iconUrl" alt="" v-show="item.iconUrl"></p>
                     </div>
                     <div @click="clickShowMust" v-show="showClick" class="more">点击展示更多<span class="iconfont icon-jiantou-copy"></span></div>
                 </van-swipe-item>
             </van-swipe>    
         </div>
+        <ul class="searchpre" v-show="showSongList">
+            <li v-for="(item,index) in searchLists" :key="item.id" v-show="index<=10" @click="goSingDetail(item)">
+                <p class="iconfont icon-sousuo"></p>
+                <p>{{item.name}}</p>
+            </li>
+        </ul>
         <div class="card">
             <div class="titleChunkTitle">
                 <p style="color:#000">音乐专区</p>
@@ -45,7 +51,9 @@ export default {
         return {
             hotsList:[],
             showListNum:10,
-            showClick:true
+            showClick:true,
+            showSongList:false,
+            searchLists:[]
         }
     },
     mounted(){
@@ -63,6 +71,25 @@ export default {
         },
         goSingList(){
             this.$router.push('/searchsinger')
+        },
+        searchListFun(item){
+            //页面内才调用
+             this.$request('/cloudsearch',{keywords:item}).then(res=>{
+                 console.log(res)
+             this.searchLists =res.data.result.songs 
+             if(this.searchLists.length>1){
+                this.showSongList=true
+             }
+            //  console.log(this.searchLists)
+        })
+        },
+        //去音乐详细页
+        goSingDetail(item){
+            console.log(item.id)
+            this.showListFlag = true
+            this.showSongList = false
+            this.searchSong = item.name
+            this.$router.replace('/searchsong/searchinfo/' + item.name)
         }
     }
 }
@@ -137,5 +164,26 @@ export default {
     }
     .van-swipe-item{
         line-height: normal!important;;
+    }
+     .searchpre {
+        width: 100vw;
+        height: 100vh;
+        background-color: #fff;
+        position: fixed;
+        top: 2.75rem;
+        z-index: 999;
+    }
+    .searchpre li{
+
+        display: flex;
+        align-items: center;
+        padding: .625rem .625rem;
+        height:1.5625rem;
+        /* background-color: red; */
+        border-bottom: 1px solid #f3f3f3;
+        font-size: .875rem;
+    }
+    .searchpre li p{
+        margin-right: .625rem;
     }
 </style>
