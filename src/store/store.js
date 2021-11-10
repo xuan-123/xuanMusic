@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     userInfo:{},//用户信息
     likeList:[], //用户喜欢列表
+    myComment:{}
   },
   mutations: {
       //获取用户喜欢列表
@@ -17,6 +18,11 @@ export default new Vuex.Store({
     addUserInfo(state,x){
       this.state.userInfo = x
       console.log(x+'-------------------')
+    },
+    //获取用户评论
+    getMyComment(state,x){
+      this.state.myComment = x
+      console.log(x)
     }
 
   },

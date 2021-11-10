@@ -27,14 +27,16 @@
                 <div class="bottom" @click="goEditMasseg">编辑信息</div>
             </div>
         </div>
+        <MyComment />
     </div>
 </template>
 
 <script>
+import MyComment from '../MyPageComp/MyComment.vue'
 import NavBar from '../../../components/NavBar/NavBar.vue'
 export default {
     components:{
-        NavBar
+        NavBar,MyComment
     },
     data(){
         return {
@@ -46,7 +48,7 @@ export default {
         this.userInfo = JSON.parse(this.$store.state.userInfo)
         console.log(this.$store.state.userInfo)
         this.getDatas()
-  
+        this.getComment()
     },
     methods:{
         async getDatas(){
@@ -58,7 +60,13 @@ export default {
             this.userLevel = res.data.data
 
         },
-      
+        async getComment(){
+           var res = await  this.$request('/user/comment/history',{
+                uid:this.userInfo.userId,
+                cookie:encodeURIComponent(JSON.parse(window.sessionStorage.getItem('cookie'))) //报301的添加cookie
+            })
+            this.$store.commit('getMyComment',res.data.data)
+        },
         //去粉丝页
         gotoFollowed(id){
             this.$router.push('/followedpage/' + id)
@@ -80,8 +88,14 @@ export default {
 
     .usermain{
         padding-top: 44px;
+        background-color: #f7f7f7;
+        height: 100vh;
+        padding: 46px 10px 0;
+        box-sizing: border-box;
     }
     .userInfo{
+        border-radius: 10px;
+        background-color: #fff;
         padding: 0 20px;
         box-sizing: border-box;
         height: 100px;
@@ -89,6 +103,7 @@ export default {
         display: flex;
         /* background-color: #ccc; */
         align-items: center;
+        margin-bottom: 10px ;
     }
     .userInfo img{
         width: 80px;
