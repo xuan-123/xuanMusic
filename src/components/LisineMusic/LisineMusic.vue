@@ -129,9 +129,8 @@ export default {
        
             if(this.currentTime != Math.floor(this.durationNum)){
                 time = setInterval(()=>{
-                    this.currentTime = Math.floor(this.$refs.audioPlayer.currentTime)
-            
-                    this.timeProgress = Math.floor((this.currentTime / this.durationNum) * 100); //获取当前进度条数据 100份
+                        this.currentTime = Math.floor(this.$refs.audioPlayer.currentTime)
+                        this.timeProgress = Math.floor((this.currentTime / this.durationNum) * 100); //获取当前进度条数据 100份
                 },1000)
             if(this.currentTime == Math.floor(this.durationNum)){ 
                 clearInterval(time)

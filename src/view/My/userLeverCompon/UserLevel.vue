@@ -59,7 +59,7 @@ export default {
             this.level = JSON.parse(window.localStorage.getItem('userlevel'))
     },
     mounted(){
-        this.userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+        this.userInfo = JSON.parse(this.$store.state.userInfo)
         this.needPlay = this.level.nextPlayCount - this.level.nowPlayCount
         this.needDay = this.level.nextLoginCount - this.level.nowLoginCount
         console.log(typeof this.needDay)

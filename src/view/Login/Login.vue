@@ -114,8 +114,7 @@ export default {
                 console.log(res.data + '=====')
                 window.sessionStorage.setItem('token',JSON.stringify(res.data.token))
                 window.sessionStorage.setItem('cookie',JSON.stringify(res.data.cookie))
-                window.sessionStorage.setItem('userInfo',JSON.stringify(res.data.profile))
-                
+                this.$store.commit('addUserInfo',JSON.stringify(res.data.profile))
                 Toast.success('登录成功');
                 this.$router.replace({name:'home'});
             }

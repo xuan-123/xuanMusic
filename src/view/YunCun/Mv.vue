@@ -31,7 +31,7 @@ export default {
   },
   mounted() {
     // console.log(this.$route)
-    // this.getMvMsg();
+    this.getMvMsg();
     setTimeout(() => {
       if (this.mvUrl) {
         this.$refs.videoPlayer.player.play();

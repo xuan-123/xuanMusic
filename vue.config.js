@@ -1,9 +1,13 @@
 
 module.export = {
     devServer: {
-        host:'192.168.236.142',
+        host:'0.0.0.0',
         port:8080,
         disableHostChect:true ,
+        autoOpenBrowser: false,
+    errorOverlay: true,
+    notifyOnErrors: true,
+    poll: false, 
         proxy: {
             '/api': {
                 target: 'http://localhost:3000',

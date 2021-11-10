@@ -43,26 +43,22 @@ export default {
         }
     },
     mounted(){
-        this.userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
-        console.log(JSON.parse(sessionStorage.getItem('userInfo')))
-        console.log(this.$route.params.id)
+        this.userInfo = JSON.parse(this.$store.state.userInfo)
+        console.log(this.$store.state.userInfo)
         this.getDatas()
+  
     },
     methods:{
-
         async getDatas(){
-            
-            // console.log(JSON.parse(sessionStorage.getItem('cookie')))
             var res = await this.$request('/user/level',{
                 // uid:this.$route.params.id,
                 cookie:encodeURIComponent(JSON.parse(window.sessionStorage.getItem('cookie'))) //报301的添加cookie
             })
             console.log(res)
             this.userLevel = res.data.data
-            
-            // this.banners = res.data.b/anners
-            // this.storageLocal.set('banners',this.banners)  
+
         },
+      
         //去粉丝页
         gotoFollowed(id){
             this.$router.push('/followedpage/' + id)

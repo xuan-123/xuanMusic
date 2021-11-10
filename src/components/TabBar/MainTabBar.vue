@@ -4,7 +4,7 @@
             <router-link to="/home" active-class="activeClass" >
                 <tab-bar-item >
                     <div slot="top">发现</div>
-                   <div slot="bottom">发现</div>
+                   <div slot="bottom">-</div>
                    <!-- <div slot="bottom">发现</div> -->
                 </tab-bar-item>
             </router-link>
@@ -17,7 +17,7 @@
             <router-link to="/my" active-class="activeClass" >
                 <tab-bar-item>
                     <div slot="top">我的</div>
-                    <div slot="bottom">我的</div>
+                    <div slot="bottom">-</div>
                     <!-- <div slot="bottom">我的</div> -->
                 </tab-bar-item>
             </router-link>
@@ -30,7 +30,7 @@
             <router-link to="/yuncun" active-class="activeClass" >
                 <tab-bar-item>
                     <div slot="top">MV</div>
-                    <div slot="bottom">MV</div>
+                    <div slot="bottom">-</div>
                     <!-- <div slot="bottom">云村</div> -->
                 </tab-bar-item>
             </router-link>

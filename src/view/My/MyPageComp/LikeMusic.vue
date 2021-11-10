@@ -12,7 +12,7 @@
 export default {
   // /likelist?uid=32953014
   mounted() {
-       this.userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+       this.userInfo = JSON.parse(this.$store.state.userInfo)
 
       this.getLikeLise()
   },

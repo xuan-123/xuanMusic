@@ -33,7 +33,7 @@ export default {
       
     },
     mounted(){
-        this.userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+        this.userInfo = JSON.parse(this.$store.state.userInfo)
         console.log(this.userInfo)
          if(this.$route.params.id == 0){
             this.follFlag = '粉丝'

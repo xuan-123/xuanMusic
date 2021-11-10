@@ -35,8 +35,8 @@ export default {
     },
     mounted(){
         //用户信息
-       this.userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
-       console.log(JSON.parse(sessionStorage.getItem('userInfo')))
+       this.userInfo = JSON.parse(this.$store.state.userInfo)
+       console.log(this.userInfo)
 
     },
     methods:{

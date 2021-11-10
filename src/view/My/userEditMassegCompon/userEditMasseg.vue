@@ -125,7 +125,7 @@ export default {
         }
     },
     mounted(){
-        this.userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+        this.userInfo = JSON.parse(this.$store.state.userInfo)
         this.nickname = this.userInfo.nickname
         this.gender = this.userInfo.gender
         this.birthday = this.userInfo.birthday
