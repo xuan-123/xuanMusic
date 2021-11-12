@@ -11,7 +11,7 @@
 
             <!-- <img>picUrl -->
             <div class="name">
-                <div class="singName" @click="getSingDetail(item)">{{item.name}}<span v-show="item.artists[0]">({{item.artists[0].name}})</span></div>
+                <div class="singName" @click="getSingDetail(item)">{{item.name}}</div>
                 <div class="singer"><span class="sq">SQ</span>{{item.name}} - {{item.name}}</div>
             </div>
             <div class="wei" @click="getSingUpDetail(item)">

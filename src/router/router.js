@@ -24,6 +24,7 @@ const UserLevel= ()=> import('../view/My/userLeverCompon/UserLevel.vue')
 const userEditMasseg= ()=> import('../view/My/userEditMassegCompon/userEditMasseg.vue')
 const FollowedPage = ()=> import('../view/My/userMainCompon/FollowedPage.vue')
 const LikeMusicListPage = () => import('../view/My/MyPageComp/LikeMusicListPage.vue')
+const MusicDanPage = () => import('../view/My/MyPageComp/MusicDanPage.vue')
 const MyCommentPage = () => import('../view/My/MyPageComp/MyCommentPage.vue')
 Vue.use(VueRouter)
 const originalPush = VueRouter.prototype.push
@@ -63,6 +64,14 @@ const routes = [
         component:LikeMusicListPage,
         name:'likemusiclistPage',
         meta:'喜欢列表'
+        
+    },
+    
+    {
+        path:'/musicdanpage/:id',
+        component:MusicDanPage,
+        name:'musicdanpage',
+        meta:'歌单列表'
         
     },
     {

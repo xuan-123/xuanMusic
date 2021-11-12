@@ -62,7 +62,7 @@ export default {
     margin-right: 10px;
 }
 h3{
-    font-weight:300;
+    
 }
 .top{
     margin: 10px 0;

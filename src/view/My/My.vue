@@ -15,6 +15,8 @@
         </div>
         <!-- 我的喜欢 -->
         <like-music></like-music>
+        <!-- 创建歌单 -->
+        <music-dan></music-dan>
         <!-- 底部导航 -->
         <main-tab-bar></main-tab-bar>
     </div>
@@ -24,9 +26,10 @@
 import NavBar from '../../components/NavBar/NavBar.vue'
 import MainTabBar from '../../components/TabBar/MainTabBar.vue'
 import LikeMusic from './MyPageComp/LikeMusic.vue'
+import MusicDan from './MyPageComp/MusicDan.vue'
 export default {
     components:{
-        MainTabBar,NavBar,LikeMusic
+        MainTabBar,NavBar,LikeMusic,MusicDan
     },
     data(){
         return{
