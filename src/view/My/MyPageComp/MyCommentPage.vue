@@ -13,7 +13,7 @@
                       <img :src="JSON.parse(item.resourceInfo).coverUrl || item.user.avatarUrl" alt="">
                     <p class="title">{{JSON.parse(item.resourceInfo).title || (JSON.parse(item.resourceInfo).name + '-' + JSON.parse(item.resourceInfo).artist.name)}}</p>
                   </div>
-                  <p class="good">赞{{item.likedCount}}</p>
+                  <p class="good" :class="item.liked?'red':''">赞{{item.likedCount}}</p>
               </div>
               <p class="commentContent">{{item.content}}</p>
               <p class="time">{{item.time | formatDate2}}</p>
@@ -85,5 +85,8 @@ export default {
 }
 .myComment{
     padding-top: 44px;
+}
+.red{
+    color: red;
 }
 </style>

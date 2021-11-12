@@ -10,7 +10,7 @@
                       <img src="https://p1.music.126.net/UrR6ReDBMbdJvvg-yMO4Lw==/109951165350184146.jpg" alt="">
                     <p class="title">{{resourceInfo.name}} {{resourceInfo.artist.name}}</p>
                   </div>
-                  <p class="good">赞{{myComment.comments[0].likedCount}}</p>
+                  <p class="good" :class="myComment.comments[0].liked?'red':''">赞{{myComment.comments[0].likedCount}}</p>
               </div>
               <p class="commentContent">{{myComment.comments[0].content}}</p>
               <p class="time">{{myComment.comments[0].time |formatDate2}}</p>
@@ -90,5 +90,8 @@ h3{
     padding-top: 5px;
     color: #b1b1b1;
     font-size: 12px;
+}
+.red{
+    color: red;
 }
 </style>
