@@ -55,7 +55,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .top{
         padding: 20px 10px;
         box-sizing: border-box;
