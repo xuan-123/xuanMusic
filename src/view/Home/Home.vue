@@ -109,9 +109,7 @@ export default {
 
   mounted(){
     //   console.log(storageLocal)
-    //    this.$request('user/playlist?uid=447982727',{}).then(res=>{
-    //         console.log(res)
-    //   })
+  
     //获取用户登录状态
     // var token = sessionStorage.getItem('token')
     //获取轮播图

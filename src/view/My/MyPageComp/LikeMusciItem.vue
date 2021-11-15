@@ -42,7 +42,9 @@ export default {
       this.songs = res.data.songs[0]
     },
     goLisenMusic(){
-        window.sessionStorage.setItem('linsinMusic',JSON.stringify(this.songs))
+        // window.sessionStorage.setItem('linsinMusic',JSON.stringify(this.songs))
+        this.$store.commit('addMusic',JSON.stringify(this.songs))
+
          this.$router.push('/lisinemusic/'+ this.id)
     }
   },

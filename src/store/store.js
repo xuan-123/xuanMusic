@@ -8,7 +8,11 @@ export default new Vuex.Store({
     userInfo:{},//用户信息
     likeList:[], //用户喜欢列表
     myComment:{},
-    musicDanMessage:{}
+    musicDanMessage:{},
+    currentMusic:{},
+    defaultGroup:[
+      
+    ]
   },
   mutations: {
       //获取用户喜欢列表
@@ -28,11 +32,18 @@ export default new Vuex.Store({
     //获取歌单详情
     getMusicDanMessage(state,x){
       this.state.musicDanMessage = x
+    },
+    addMusic(state,x){
+      this.state.currentMusic = x
+    },
+    addGroup(state,x){
+      this.state.defaultGroup = x
 
     }
 
   },
   actions: {
+    
   },
   modules: {
   }

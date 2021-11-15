@@ -5,7 +5,7 @@
             <div class="rightjumpChunk">更多<span class="iconfont icon-icon-right"></span></div>
         </div>
         <div :class="hancoun == 1? 'bottom' :'bottom2'" >
-            <div class="botItem" v-for="item in personalizeds" :key="item.id">
+            <div class="botItem" v-for="item in personalizeds" :key="item.id" @click="getGaDan(item)">
                 <p class="playCount">{{item.playCount|countNum}}</p>
                 <img class="botImg" :src="item.picUrl">
                 <span class="botFont">{{item.name}}</span>
@@ -30,6 +30,14 @@ export default {
             type: Number,
             //如果传进来是1则可以左右滑动，如果是2则上下展示 不可滑动
             default: 1
+        }
+    },
+    methods:{
+        getGaDan(item){
+            console.log(item)
+            //  this.$store.commit('getMusicDanMessage',item)
+      // return
+        this.$router.push('/musicdanpage/'+ 5269805887)
         }
     }
 }

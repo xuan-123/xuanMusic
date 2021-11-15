@@ -67,14 +67,11 @@ export default {
         //获取用户要播放的歌曲
        
         setTimeout(() => {
-             this.getItemLisinMusic()
+            //  this.getItemLisinMusic()
              this.playMusic()
         }, 100);
         //监听音频当前播放时间
-        
-         
-        
-      
+
     },
     data(){
         return {
@@ -111,16 +108,17 @@ export default {
            this.musicUrl = res.data.data[0].url
            console.log(res.data.data[0].url)
            console.log(res)
+           this.getItemLisinMusic()
         },
         //一进页面从本地缓存中拿当前播放的数据，以后要改为store方式
         getItemLisinMusic(){
-            
-            let linsinMusic = window.sessionStorage.getItem('linsinMusic')
+            console.log(this.$store.state.currentMusic)
+            // let linsinMusic = window.sessionStorage.getItem('linsinMusic')
+            let linsinMusic = this.$store.state.currentMusic
             linsinMusic = JSON.parse(linsinMusic)
-            console.log(linsinMusic)
             console.log('_________________________')
             this.singerName = linsinMusic.name
-            this.songerName = linsinMusic.ar[0].name
+            this.songerName = linsinMusic.ar[0].name || 'xuan'
             this.picUrl = linsinMusic.al.picUrl
             this.musicTalTime = linsinMusic.dt //歌曲总时长
             this.durationNum = returnSecond(this.musicTalTime) //歌曲总秒数

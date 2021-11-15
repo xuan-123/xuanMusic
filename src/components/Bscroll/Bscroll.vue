@@ -10,7 +10,7 @@
 
 /**
  * 注：
- * 被Bscroll包裹的元素不支持fixed，
+ * 被Bscroll包裹的元素不支持fixed，因为插件滚动使用了transfrom,fixed不支持
  * 
  */
   import BScroll from 'better-scroll'

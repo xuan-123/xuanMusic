@@ -4,10 +4,10 @@
         showType:"前边展示图片还是索引，1:索引 2:'图片'"
      -->
     
-    <div >
+    <div style="padding:0 10px">
         <div class="listitem" v-for="(item,index) in musicList" :key="item.id">
             <p class="index" v-show="showType=='2'"> {{index + 1}}</p>
-            <!-- <img alt="" class="singImg" v-show="showType=='2'"> -->
+            <img alt="" class="singImg" :src="item.al.picUrl" v-show="showType=='1'">
 
             <!-- <img>picUrl -->
             <div class="name">
@@ -44,7 +44,9 @@ export default {
             this.$request('/song/detail',{ids:item.id}).then(res=>{
                  console.log(res)
                  //未用await为异步，跳转放到接口内部，要不每次异步会先走跳转再存值
-                window.sessionStorage.setItem('linsinMusic',JSON.stringify(res.data.songs[0]))
+                // window.sessionStorage.setItem('linsinMusic',JSON.stringify(res.data.songs[0]))
+                 this.$store.commit('addMusic',JSON.stringify(res.data.songs[0]))
+    
                 this.$router.push('/lisinemusic/'+ item.id)
                 console.log('1')
             })

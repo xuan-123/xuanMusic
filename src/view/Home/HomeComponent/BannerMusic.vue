@@ -44,7 +44,9 @@ export default {
   },
   methods:{
       bannerMusic(item){
-          window.sessionStorage.setItem('linsinMusic',JSON.stringify(item))
+        //   window.sessionStorage.setItem('linsinMusic',JSON.stringify(item))
+        this.$store.commit('addMusic',JSON.stringify(item))
+
           this.$router.push('/lisinemusic/'+ item.id)
       }
   }

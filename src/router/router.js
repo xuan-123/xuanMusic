@@ -26,6 +26,9 @@ const FollowedPage = ()=> import('../view/My/userMainCompon/FollowedPage.vue')
 const LikeMusicListPage = () => import('../view/My/MyPageComp/LikeMusicListPage.vue')
 const MusicDanPage = () => import('../view/My/MyPageComp/MusicDanPage.vue')
 const MyCommentPage = () => import('../view/My/MyPageComp/MyCommentPage.vue')
+const DayMusic = () => import('../view/Home/HomeComponent/DayMusic.vue')
+const MusicGroup = () => import('../view/Home/HomeComponent/MusciGroup/MusicGroup')
+const EditGroup = () => import('../view/Home/HomeComponent/MusciGroup/EditGroup')
 Vue.use(VueRouter)
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location){
@@ -173,6 +176,25 @@ const routes = [
         name:'mv',
         meta:'mv播放'
     },
+    {
+        path:'/daymusic',
+        component:DayMusic,
+        name:'daymusic',
+        meta:'每日推荐'
+    },
+    {
+        path:'/musicgroup',
+        component:MusicGroup,
+        name:'musicgroup',
+        meta:'歌单广场'
+    },
+    {
+        path:'/editgroup',
+        component:EditGroup,
+        name:'editgroup',
+        meta:'歌单编辑'
+    },
+    
     
 ]
 const router = new VueRouter({

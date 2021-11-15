@@ -40,7 +40,8 @@ export default {
     methods:{
         getSingDetail(item){
             console.log(item)
-            window.sessionStorage.setItem('linsinMusic',JSON.stringify(item))
+            // window.sessionStorage.setItem('linsinMusic',JSON.stringify(item))
+            this.$store.commit('addMusic',JSON.stringify(item))
             this.$router.push('/lisinemusic/'+ item.id)
         },
         getSingUpDetail(item){
