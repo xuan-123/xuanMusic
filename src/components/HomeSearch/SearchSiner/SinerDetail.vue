@@ -129,6 +129,7 @@ export default {
         z-index:999;
         width: 100vw;
         
+        
       
     }
     .sinerDetail{
