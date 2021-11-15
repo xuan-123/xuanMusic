@@ -85,22 +85,19 @@ export default {
     gotoUserInfo() {
       this.$router.push("/usermain/" + this.userInfo.userId);
     },
+    // 切换tab栏控制滚动
     checkTab(i) {
       this.checkIndex = i;
         console.log( this.$refs.dan.offsetTop)
-      this.$refs.bscroll.refresh()
-      if(i==0){
-          this.$refs.bscroll.scrollTo(0,-this.$refs.dan.offsetTop)
-      }else{
-          this.$refs.bscroll.scrollTo(0,-this.$refs.dan.offsetTop + -100)
-      }
+        this.$refs.bscroll.refresh()
+        if(i==0){
+            this.$refs.bscroll.scrollTo(0,-this.$refs.dan.offsetTop)
+        }else{
+            this.$refs.bscroll.scrollTo(0,-this.$refs.dan.offsetTop + -100)
+        }
     },
     scroll(pos){
-    //   this.$refs.bscroll.refresh()
-
-        // if(Number(pos.y) < -this.$refs.dan.offsetTop){
-        //     this.fixed = true
-        // }
+   
     }
   },
 };

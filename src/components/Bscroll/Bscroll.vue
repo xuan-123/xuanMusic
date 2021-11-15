@@ -1,3 +1,4 @@
+
 <template>
     <div ref="wrapper">
         <slot></slot>
@@ -6,6 +7,12 @@
 
 
 <script type="text/ecmascript-6">
+
+/**
+ * 注：
+ * 被Bscroll包裹的元素不支持fixed，
+ * 
+ */
   import BScroll from 'better-scroll'
 
   export default {
@@ -176,6 +183,7 @@
       },
       scrollTo() {
         // 代理better-scroll的scrollTo方法
+        //组件使用方法：this.$refs.ref名.scrollTo()
         this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
       },
     //   scrollToElement() {

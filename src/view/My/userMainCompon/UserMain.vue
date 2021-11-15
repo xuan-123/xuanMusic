@@ -27,16 +27,19 @@
                 <div class="bottom" @click="goEditMasseg">编辑信息</div>
             </div>
         </div>
+        <!-- 创建歌单 -->
+        <music-dan ></music-dan>
         <MyComment />
     </div>
 </template>
 
 <script>
+import MusicDan from "../MyPageComp/MusicDan.vue";
 import MyComment from '../MyPageComp/MyComment.vue'
 import NavBar from '../../../components/NavBar/NavBar.vue'
 export default {
     components:{
-        NavBar,MyComment
+        NavBar,MyComment,MusicDan
     },
     data(){
         return {
