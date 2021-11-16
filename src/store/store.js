@@ -10,9 +10,7 @@ export default new Vuex.Store({
     myComment:{},
     musicDanMessage:{},
     currentMusic:{},
-    defaultGroup:[
-      
-    ]
+    defaultGroup:[],//用户歌单标签
   },
   mutations: {
       //获取用户喜欢列表

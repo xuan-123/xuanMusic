@@ -32,15 +32,6 @@ export default {
       dailySongs: [],
         danList:[
                 { name:'官方',index:0 },
-                { name:'精品',index:1 },
-                { name:'华语',index:2 },
-                { name:'流行',index:3 },
-                { name:'摇滚',index:4 },
-                { name:'民谣',index:5 },
-                { name:'电子',index:6 },
-                { name:'轻音乐',index:7 },
-                { name:'古典',index:8 },
-                { name:'古典2',index:9 },
             ],
     };
   },
@@ -49,7 +40,11 @@ export default {
       if (item.name == "每日推荐") {
         this.$router.push("/daymusic");
       } else if(item.name == "歌单"){
-        this.$store.commit('addGroup',this.danList)
+        if(this.$store.state.defaultGroup){
+
+        }else{ 
+          this.$store.commit('addGroup',this.danList)
+        }
         this.$router.push('/musicgroup')
       }
     },
