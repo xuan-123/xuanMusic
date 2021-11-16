@@ -70,6 +70,14 @@ export default {
         Bscroll
     },
     mounted(){
+
+        // if(window.sessionStorage.getItem('addcommentFlag') == '2'){
+        if(this.$store.state.commentFlag == '2'){
+            this.commentUrl = '/comment/playlist'
+        }else{
+            this.commentUrl = '/comment/music'
+
+        }
         this.getUserComment()
         
     },
@@ -83,7 +91,9 @@ export default {
             cateFlag1:true,
             cateFlag2:false,
             scrollY:0,
-            scrollYpos:0
+            scrollYpos:0,
+            commentUrl:'1'
+
         }
     },
     methods:{
@@ -95,8 +105,9 @@ export default {
             this.scrollY = pos.y
         },
         //获取评论
+
         async getUserComment(){
-            let res = await this.$request('/comment/music',{
+            let res = await this.$request(this.commentUrl ,{
                 id:this.$route.params.id,
                 limit:10
             })
@@ -113,7 +124,7 @@ export default {
                 return
             }
             this.offset = this.offset+10
-            this.$request('/comment/music',{
+            this.$request(this.commentUrl ,{
                 id:this.$route.params.id,
                 limit:10,
                 offset:this.offset

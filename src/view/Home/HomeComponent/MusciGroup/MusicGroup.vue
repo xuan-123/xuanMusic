@@ -58,9 +58,9 @@ export default {
         });
         },
         goDetail(item){
+        
             this.$store.commit('getMusicDanMessage',item)
-      // return
-        this.$router.push('/musicdanpage/'+ item.id)
+            this.$router.push('/musicdanpage/'+ item.id)
         }
            
     }
@@ -131,7 +131,11 @@ export default {
         font-size: 12px;
         text-align: left;
         padding: 0 4px;
-        overflow: hidden;    text-overflow: ellipsis;    display: -webkit-box;    -webkit-line-clamp: 2;    -webkit-box-orient: vertical;
+        overflow: hidden;    
+        text-overflow: ellipsis;    
+        display: -webkit-box;
+        -webkit-line-clamp: 2;    
+        -webkit-box-orient: vertical;
     }
     .content img{
         width: 30vw;

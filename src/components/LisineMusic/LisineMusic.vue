@@ -167,6 +167,10 @@ export default {
         },
         //用户评论
         userLike(){
+             this.$store.commit('addcommentFlag','1')
+
+            window.sessionStorage.setItem('addcommentFlag','1')
+
             this.$router.push('/musiccomment/'+this.$route.params.id)
                 
         }

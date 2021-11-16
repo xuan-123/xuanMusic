@@ -86,11 +86,20 @@ export default {
        flex-wrap: none;
     }
     .name .singName{
-        
+        overflow: hidden;    
+        text-overflow: ellipsis;    
+        display: -webkit-box;
+        -webkit-line-clamp: 1;    
+        -webkit-box-orient: vertical;
     }
     .name .singer{
         font-size: .75rem;
         color: #666;
+        overflow: hidden;    
+        text-overflow: ellipsis;    
+        display: -webkit-box;
+        -webkit-line-clamp: 1;    
+        -webkit-box-orient: vertical;
     }
     .wei{
  

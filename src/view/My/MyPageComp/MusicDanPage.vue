@@ -18,6 +18,7 @@
                 </div>
             </div>
         </div>
+        <div @click="goComment">评论</div>
         <music-list-item :musicList="musicDanList " :showType="2"></music-list-item>
     </div>
 </template>
@@ -50,6 +51,13 @@ export default {
                 ), //报301的添加cookie
             });
             this.musicDanList = res.data.playlist.tracks
+        },
+        goComment(){
+             this.$store.commit('addcommentFlag','2')
+             window.sessionStorage.setItem('addcommentFlag','2')
+           
+
+            this.$router.push('/musiccomment/'+this.musicDanMessage.id)
         }
     }
 }

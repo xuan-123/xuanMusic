@@ -65,13 +65,15 @@ export default {
 }
 .paiBanner {
   display: inline-block;
+  display: flex;
 }
 .paiBanner .bannerItem {
-  width: 2.5rem;
+  flex: 1;
   height: 3.5rem;
   margin-left: 1.65rem;
-  font-size: 0.75rem;
+  font-size: 12px;
   display: inline-block;
+  text-align: center;
 }
 .bannerItem .itemTop {
   width: 2.5rem;

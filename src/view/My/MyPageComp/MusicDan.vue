@@ -65,6 +65,7 @@ export default {
     },
     goDanPage(item){
       console.log(item)
+      
       this.$store.commit('getMusicDanMessage',item)
       // return
         this.$router.push('/musicdanpage/'+ item.id)

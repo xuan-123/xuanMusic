@@ -36,7 +36,7 @@ export default {
         getGaDan(item){
             console.log(item)
             //  this.$store.commit('getMusicDanMessage',item)
-      // return
+
         this.$router.push('/musicdanpage/'+ 5269805887)
         }
     }

@@ -11,6 +11,7 @@ export default new Vuex.Store({
     musicDanMessage:{},
     currentMusic:{},
     defaultGroup:[],//用户歌单标签
+    commentFlag:''
   },
   mutations: {
       //获取用户喜欢列表
@@ -36,7 +37,10 @@ export default new Vuex.Store({
     },
     addGroup(state,x){
       this.state.defaultGroup = x
-
+    },
+    addcommentFlag(state,x){
+   
+      state.commentFlag = x
     }
 
   },
