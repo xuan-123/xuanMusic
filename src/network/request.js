@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Loading } from 'element-ui'
 export function request(url,params){
     const instance = axios.create({
-        baseURL:'http://localhost:3000',
+        baseURL:'https://musci-api-aq53vebj7-xuan-123.vercel.app',
         async:true,
         crossDomain:true,
     })
