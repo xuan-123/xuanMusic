@@ -10,7 +10,7 @@ module.export = {
     poll: false, 
         proxy: {
             '/api': {
-                target: 'http://localhost:3000',
+                target: 'https://musci-api-aq53vebj7-xuan-123.vercel.app',
                 changeOrigin: true,//改变源
                 ws: true,//跨域
                 pathRewrite: {
