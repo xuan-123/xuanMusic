@@ -6,8 +6,8 @@
     
     <div style="padding:0 10px">
         <div class="listitem" v-for="(item,index) in musicList" :key="item.id">
-            <p class="index" v-show="showType=='2'"> {{index + 1}}</p>
-            <img alt="" class="singImg" :src="item.al.picUrl" v-show="showType=='1'">
+            <p class="index" v-if="showType=='2'"> {{index + 1}}</p>
+            <img alt="" class="singImg"  v-if="showType=='1'" :src="item.al.picUrl" >
 
             <!-- <img>picUrl -->
             <div class="name">
@@ -35,8 +35,11 @@ export default {
         },
         showType:{
             type:Number,
-            default:1  //1:只展示索引，2:展示图片
+            default:'1' //1:只展示索引，2:展示图片
         }
+    },
+    mounted(){
+        console.log(this.showType)
     },
     methods:{
       getSingDetail(item){

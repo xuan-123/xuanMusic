@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div @click="goComment">评论</div>
+        <div @click="goComment" class="comment">评论</div>
         <music-list-item :musicList="musicDanList " :showType="2"></music-list-item>
     </div>
 </template>
@@ -94,4 +94,15 @@ export default {
         border-radius: 50%;
         margin-right: 10px;
         }
+    .comment{
+        /* background-color: #ccc; */
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        margin: 0 auto;
+        border: 1px solid #e3e3e3;
+        border-radius: 20px;
+        font-size: 12px;
+    }
 </style>

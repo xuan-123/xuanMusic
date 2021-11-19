@@ -2,7 +2,7 @@
     <div class="personalized">
         <div class="titleChunk">
             <h3>{{title}}</h3>
-            <div class="rightjumpChunk">更多<span class="iconfont icon-icon-right"></span></div>
+            <div class="rightjumpChunk" @click="goGroup">更多<span class="iconfont icon-icon-right"></span></div>
         </div>
         <div :class="hancoun == 1? 'bottom' :'bottom2'" >
             <div class="botItem" v-for="item in personalizeds" :key="item.id" @click="getGaDan(item)">
@@ -38,6 +38,9 @@ export default {
             //  this.$store.commit('getMusicDanMessage',item)
 
         this.$router.push('/musicdanpage/'+ 5269805887)
+        },
+        goGroup(){
+            this.$router.push('/musicgroup')
         }
     }
 }

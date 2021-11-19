@@ -31,6 +31,7 @@ export default {
     },
     mounted(){
         this.myGroup = this.$store.state.defaultGroup
+  
         this.getPlaylist(this.myGroup[0].name)
      
     },

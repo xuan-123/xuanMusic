@@ -40,8 +40,8 @@ export default {
       if (item.name == "每日推荐") {
         this.$router.push("/daymusic");
       } else if(item.name == "歌单"){
-        if(this.$store.state.defaultGroup){
-
+        if(this.$store.state.defaultGroup.length>0){
+                
         }else{ 
           this.$store.commit('addGroup',this.danList)
         }
