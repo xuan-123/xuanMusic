@@ -1,7 +1,7 @@
 <template>
     <div class="login">
         <div class="top">
-            <!-- <img src="./img/104.png" alt=""> -->
+            <img src="./img/104.png" alt="">
             <p>中银富登</p>
         </div>
         <div class="mainContent pd2" v-show="!showFlag">
