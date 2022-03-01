@@ -5,14 +5,17 @@ module.export = {
         port:8080,
         disableHostChect:true ,
         autoOpenBrowser: false,
+  
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, 
         proxy: {
             '/api': {
-                target: 'https://musci-api-aq53vebj7-xuan-123.vercel.app',
+                target: 'http://localhost:3000',
+                // target: 'https://musci-api-aq53vebj7-xuan-123.vercel.app',
                 changeOrigin: true,//改变源
                 ws: true,//跨域
+                
                 pathRewrite: {
                     '^/api':''
                 }

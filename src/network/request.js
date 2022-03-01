@@ -2,18 +2,20 @@ import axios from 'axios'
 import { Loading } from 'element-ui'
 export function request(url,params){
     const instance = axios.create({
-        // baseURL:'http://localhost:3000',
-        baseURL:'https://musci-api-aq53vebj7-xuan-123.vercel.app',
+        baseURL:'http://localhost:3000',
+        // baseURL:'https://musci-api-aq53vebj7-xuan-123.vercel.app',
 
         async:true,
         crossDomain:true,
-        withCredentials:true
+        // withCredentials:true
     })
+    
+    // instance.defaults.withCredentials = true;
     instance.interceptors.request.use(config=>{
        let token =  window.sessionStorage.getItem('token')
-       let cookie =  window.sessionStorage.getItem('cookie')
-       
-
+    //    let cookie =  window.sessionStorage.getItem('cookie')
+    
+     
        if(token){
             config.headers.post['Content-Type'] = 'application/json';
             config.headers.common['Authorization'] = "Bearer " + JSON.parse(token)
@@ -36,7 +38,8 @@ export function request(url,params){
     })
     if (params) {
         params = {
-            params: params
+            params: params,
+            
         }
         return instance.get(url, params)
     } else {

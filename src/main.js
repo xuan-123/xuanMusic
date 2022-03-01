@@ -15,6 +15,8 @@ import global_ from './assets/lib/js/Global'
 import storageLocal from './assets/lib/js/localStorage'
 //全局过滤器
 import *as filter from './assets/lib/js/filter/filter'
+import Print from 'vue-print-nb'
+Vue.use(Print);  //注册
 // import './assets/lib/js/flexible'
 Object.keys(filter).forEach((key)=>{
   Vue.filter(key,filter[key])

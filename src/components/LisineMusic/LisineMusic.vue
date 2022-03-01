@@ -10,11 +10,16 @@
             <div class="right"></div>
         </div>
         <!-- 中间图片 -->
-        <div class="Img">
+        <div class="Img" v-show="!showimgOrlyrc" @click="showimgOrlyrc = !showimgOrlyrc">
             <img class="penImg" src="../../assets/11.png" alt="">
             <div class="centerImgDiv" ref="centerImgDiv" :style="{backgroundImage: 'url(' + (picUrl) + ')', backgroundSize:'100% 100%', backgroundRepeat: 'no-repeat'}">
                 <img class="centerImg" src="../../assets/123.png" alt="">
             </div>
+        </div>
+         <div class="lyrc" v-show="showimgOrlyrc" @click="showimgOrlyrc = !showimgOrlyrc">
+            <p v-for="(item,index) in lyric" :key="index" 
+            style="text-align:center;font-size:12px;margin:15px 0;" :class="currentTime >= item.time && index <= item.index?'lyrcLine':''" 
+            >{{item.value}} {{item.time}}</p>
         </div>
         <!-- 背景模糊层 -->
         <div class="lisineMusic2" ></div>
@@ -73,6 +78,7 @@ export default {
         //监听音频当前播放时间
 
     },
+    
     data(){
         return {
             name:'播放',
@@ -90,9 +96,14 @@ export default {
             volumeProgress: 35,
             // 是否静音
             isMuted: false,
+            lyric:[],
+            showimgOrlyrc:false,
+            time:null
         }
     },
-
+destroyed(){
+        clearInterval(this.time)
+    },
     methods:{
         updates(){
             console.log('1')
@@ -100,6 +111,7 @@ export default {
         goBack(){
             this.$router.go(-1)
         },
+
         //获取歌手信息
        async getSingerUrl(){
           let res = await this.$request('/song/url',{
@@ -112,7 +124,7 @@ export default {
         },
         //一进页面从本地缓存中拿当前播放的数据，以后要改为store方式
         getItemLisinMusic(){
-            console.log(this.$store.state.currentMusic)
+            // console.log(this.$store.state.currentMusic)
             // let linsinMusic = window.sessionStorage.getItem('linsinMusic')
             let linsinMusic = this.$store.state.currentMusic
             linsinMusic = JSON.parse(linsinMusic)
@@ -123,28 +135,61 @@ export default {
             this.musicTalTime = linsinMusic.dt //歌曲总时长
             this.durationNum = returnSecond(this.musicTalTime) //歌曲总秒数
             //拿到音乐总时长后调倒计时
-            var time = null
-       
+            // var time = null
+
+            this.getlyric(linsinMusic)
             if(this.currentTime != Math.floor(this.durationNum)){
-                time = setInterval(()=>{
+                this.time = setInterval(()=>{
                         this.currentTime = Math.floor(this.$refs.audioPlayer.currentTime)
                         this.timeProgress = Math.floor((this.currentTime / this.durationNum) * 100); //获取当前进度条数据 100份
+                console.log(this.currentTime)
+
                 },1000)
             if(this.currentTime == Math.floor(this.durationNum)){ 
-                clearInterval(time)
+                clearInterval(this.time)
                 return 
             }
         }
+        },
+        
+        getlyric(cur){
+            this.$request('/lyric',{
+                id:cur.id,
+            }).then(res=>{
+                // console.log(res.data.lrc.lyric)
+                console.log(res)
+                let a = []
+                this.lyric = res.data.lrc.lyric.split('\n')
+                
+                for(var i = 0;i<this.lyric.length-1;i++){
+                    // Number(this.lyric[i].split(']')[0].slice(1).split(':')[0] * 60) 
+                    // console.log(this.lyric[i].split(']')[0].slice(1).split(':')[1])
+                    // console.log(this.lyric[i].split(']')[0].slice(1).split(':')[1].slice(0,2))
+                    let time =Number(this.lyric[i].split(']')[0].slice(1).split(':')[0] * 60) + Number(this.lyric[i].split(']')[0].slice(1).split(':')[1].slice(0,2))
+                    let lyric = this.lyric[i].split(']')[1]
+                    a.push({
+                        index:i,
+                        time:time,
+                        value:lyric
+                    },)
+                }
+                console.log(a)
+                this.lyric = a
+                // console.log(this.lyric)
+                
+            })
         },
         //改为slider监听
         onChange(e){
             this.currentTime = Math.floor((e / 100) * this.durationNum);
             // 改变audio的实际当前播放时间
             this.$refs.audioPlayer.currentTime = this.currentTime;
+            console.log(this.currentTime)
         },
         //滑块控制音量
         onChangeVolume(e){
             this.$refs.audioPlayer.volume = e / 100;
+            console.log(e)
         },
         //点击播放暂停按钮
         playMusicf(){
@@ -176,6 +221,9 @@ export default {
         }
         
     },
+    computed:{
+       
+    }
    
    
 }
@@ -196,7 +244,7 @@ export default {
         top:0;
         z-index: 0;
         background: inherit;
-        
+    
     }
     .title{
         display: flex;
@@ -289,6 +337,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 99;
         background-color: rgba(0, 0, 0, 0);
     }
     .buttonControl .play{
@@ -314,6 +363,7 @@ export default {
          margin: 0 auto;
          width: 80%;
          margin: 0 10px;
+ 
     }
     .sliderContent{
         margin: 0 10%;
@@ -343,5 +393,24 @@ export default {
         position: absolute;
         bottom: 140px;
         right: 60px;
+        z-index: 99;
+    }
+    .lyrc{
+        /* background-color: #ccc; */
+        width: 80%;
+        height: 400px;
+        top: 45%;
+        left: 50%;
+        margin-top: -200px;
+        margin-left: -40%;
+        position: absolute;
+        z-index: 33;
+        overflow: hidden;
+        overflow: scroll;
+        color: #a7a7a7;
+        
+    }
+    .lyrc .lyrcLine{
+        color: #fff;
     }
 </style>

@@ -1,7 +1,10 @@
 <template>
   <div class="musicdan">
             <div class="likemusic">
-            <p class="smTitle">创建歌单{{this.musicDanList1.length}}</p>
+            <div class="smTitle">
+              <p>创建歌单{{this.musicDanList1.length}}</p>
+              <p style="font-size:20px" @click="addMusicList">+</p>
+            </div>
             <div class="likemusicItem" :class="index>0?'':'mb'" v-for="(item,index) in musicDanList1" :key="item.updateTime" @click="goDanPage(item)">
             <img :src="item.coverImgUrl" alt="" />
             <div>
@@ -69,6 +72,10 @@ export default {
       this.$store.commit('getMusicDanMessage',item)
       // return
         this.$router.push('/musicdanpage/'+ item.id)
+    },
+    //添加歌单
+    addMusicList(){
+      
     }
   },
 };
@@ -79,6 +86,8 @@ export default {
     margin-bottom: 10px;
     font-size: 12px;
     color: #a5a5a5;
+    display: flex;
+    justify-content: space-between;
 }
 .likemusic {
   /* height: 80px; */

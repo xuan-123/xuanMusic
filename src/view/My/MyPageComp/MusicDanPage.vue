@@ -3,7 +3,7 @@
         <nav-bar>
             <div slot="left"><p class="iconfont icon-fanhui" @click="$router.go('-1')"></p></div>
             <div slot="center">歌单</div>
-            <div slot="right"><p class="iconfont icon-saomiao"></p></div>
+            <div slot="right"><p @click="editMusicList">编辑</p></div>
         </nav-bar>
         <div class="top">
             <div class="img">
@@ -51,6 +51,7 @@ export default {
                 ), //报301的添加cookie
             });
             this.musicDanList = res.data.playlist.tracks
+            console.log(this.musicDanList)
         },
         goComment(){
              this.$store.commit('addcommentFlag','2')
@@ -58,6 +59,9 @@ export default {
            
 
             this.$router.push('/musiccomment/'+this.musicDanMessage.id)
+        },
+        editMusicList(){
+            this.$router.push('/editmusiclist/'+this.musicDanMessage.id)
         }
     }
 }

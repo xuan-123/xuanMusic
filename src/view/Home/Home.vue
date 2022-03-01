@@ -135,7 +135,8 @@ export default {
             this.$router.push('/searchsong')
         },
         async getDatas(){
-            var res = await this.$request('/banner?type=2',{})
+            var res = await this.$request('/banner?type=2',{
+            })
             this.banners = res.data.banners
             this.storageLocal.set('banners',this.banners)  
         },
@@ -159,13 +160,15 @@ export default {
         },
         // 推荐歌单
         async getPersonalized(){
-           let res = await this.$request('/personalized?limit=6',{})
+           let res = await this.$request('/personalized?limit=6',{
+           })
            console.log(res.data)
            this.personalized = res.data.result
         },
         //推荐歌曲
         async getRecommendSongs(){
-           let res = await this.$request('/artist/top/song?id=6452',{})
+           let res = await this.$request('/artist/top/song?id=6452',{
+           })
            this.recommendSongs = res.data.songs
             var len = Math.ceil(this.recommendSongs.length/3)
             for (var i = 0; i < len; i++) {

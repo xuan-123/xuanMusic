@@ -1,7 +1,7 @@
 <template>
-    <div class="login">
+    <div class="login" id="printArea">
         <div class="top">
-            <img src="./img/104.png" alt="">
+            <img src="./img/104.png" alt="" class="noprint">
             <p>中银富登</p>
         </div>
         <div class="mainContent pd2" v-show="!showFlag">
@@ -10,9 +10,10 @@
                 <input type="password" placeholder="请输入登录密码" v-model="password">
             </div>
             <div class="btnContent">
-                <button class="themeBtn" @click="telmailLogin()">
+                <button class="themeBtn"  @click="telmailLogin()">
                     登录
                 </button>
+
                 <button class="themeBtn2" @click="checkLogin('sms')">
                     用短信验证码登录
                 </button>
@@ -26,6 +27,7 @@
                 <button class="themeBtn" @click="smsLogin()">
                     获取验证码
                 </button>
+               
                 <button class="themeBtn2" @click="checkLogin('no')">
                     用账号密码登录
                 </button>
@@ -48,6 +50,9 @@
             <span @click="close()">关闭</span>
             <!-- <div id="qrcode"></div> -->
         </div>
+       
+
+　　　　<button v-print="print" class="printtt">打印</button>   
     </div>
 </template>
 
@@ -79,7 +84,24 @@ export default {
             unikey:'',
             ewmImg:'',
             showBg:false,
-            timer:null
+            timer:null,
+            print: {
+                id: 'printArea',
+                popTitle: '登录页', // 打印配置页上方标题
+                extraHead: '', //最上方的头部文字，附加在head标签上的额外标签,使用逗号分隔
+                preview: '', // 是否启动预览模式，默认是false（开启预览模式，可以先预览后打印）
+                previewTitle: '', // 打印预览的标题（开启预览模式后出现）,
+                previewPrintBtnLabel: '', // 打印预览的标题的下方按钮文本，点击可进入打印（开启预览模式后出现）
+                zIndex: '1', // 预览的窗口的z-index，默认是 20002（此值要高一些，这涉及到预览模式是否显示在最上面）   
+                previewBeforeOpenCallback() {}, //预览窗口打开之前的callback（开启预览模式调用）
+                previewOpenCallback() {}, // 预览窗口打开之后的callback（开启预览模式调用）
+                beforeOpenCallback() {}, // 开启打印前的回调事件
+                openCallback() {}, // 调用打印之后的回调事件
+                closeCallback() {}, //关闭打印的回调事件（无法确定点击的是确认还是取消）
+                url: '',
+                standard: '',
+                extraCss: '',
+            },
         }
     },
     methods:{
@@ -91,6 +113,14 @@ export default {
             }else{
                 this.showFlag = !this.showFlag
             }
+        },
+        telma(){
+            var url = 'https://download.bocfullertonbank.com/mbank/app-release_5.997_20211215171245_sec_signed.apk'
+            window.location.href = url 
+        },
+        telma2(){
+            var url = 'https://download.bocfullertonbank.com/mbank/app-release_5.997_20211215171245_sec_signed.apk'
+            window.location.href = url + '?v='+Math.random();
         },
         //手机号邮箱登录
        async telmailLogin(){
@@ -133,7 +163,7 @@ export default {
         //二维码登录
         ewmLogin(){
             //生成二维码key
-            request({
+            this.$request({
                 url:'/login/qr/key',
             }).then(res=>{
                 console.log(res)
@@ -182,7 +212,11 @@ export default {
     }
 }
 </script>
-
+<style media="print">
+    .printtt{
+        background-color: red;
+    }
+</style>
 <style scoped>
     .login{
         width: 100vw;

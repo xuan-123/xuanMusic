@@ -25,6 +25,7 @@ const userEditMasseg= ()=> import('../view/My/userEditMassegCompon/userEditMasse
 const FollowedPage = ()=> import('../view/My/userMainCompon/FollowedPage.vue')
 const LikeMusicListPage = () => import('../view/My/MyPageComp/LikeMusicListPage.vue')
 const MusicDanPage = () => import('../view/My/MyPageComp/MusicDanPage.vue')
+const EditMusicList = () => import('../view/My/MyPageComp/EditMusicList.vue')
 const MyCommentPage = () => import('../view/My/MyPageComp/MyCommentPage.vue')
 const DayMusic = () => import('../view/Home/HomeComponent/DayMusic.vue')
 const MusicGroup = () => import('../view/Home/HomeComponent/MusciGroup/MusicGroup')
@@ -74,6 +75,13 @@ const routes = [
         path:'/musicdanpage/:id',
         component:MusicDanPage,
         name:'musicdanpage',
+        meta:'歌单列表'
+        
+    },
+    {
+        path:'/editmusiclist/:id',
+        component:EditMusicList,
+        name:'editmusiclist',
         meta:'歌单列表'
         
     },

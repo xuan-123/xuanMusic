@@ -32,6 +32,9 @@ export default new Vuex.Store({
     getMusicDanMessage(state,x){
       this.state.musicDanMessage = x
     },
+    getMusicDanMessage2(state,x){
+      this.state.musicDanMessage.coverImgUrl = x.coverImgUrl
+    },
     addMusic(state,x){
       this.state.currentMusic = x
     },
