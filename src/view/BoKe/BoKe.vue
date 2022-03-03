@@ -17,6 +17,7 @@ export default {
     },
     mounted(){
         console.log('2')
+        console.log('小凡凡工')
     },
     
 }
